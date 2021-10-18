@@ -5,18 +5,18 @@ using UnityEngine;
 namespace Race
 {
     /// <summary>
-    /// Класс линейного трека.
+    /// РљР»Р°СЃСЃ Р»РёРЅРµР№РЅРѕРіРѕ С‚СЂРµРєР°.
     /// </summary>
-    public class RaceTrackLinear : RaceTrack
+  public class RaceTrackLinear : RaceTrack
     {
         [Header("Linear track properties")]
         [SerializeField] private Transform m_Start;
         [SerializeField] private Transform m_End;
         [SerializeField] private float m_Speed;
 
-        public override Vector3 GetDirection() // убрал float distance 
+        public override Vector3 GetDirection() // СѓР±СЂР°Р» float distance 
         {
-            //distance = Mathf.Clamp(distance, 0, GetTrackLength()); // пока не нужно
+            //distance = Mathf.Clamp(distance, 0, GetTrackLength()); // РїРѕРєР° РЅРµ РЅСѓР¶РЅРѕ
             return (m_End.position - m_Start.position).normalized;
         }
 
@@ -27,9 +27,9 @@ namespace Race
             Vector3 direction = GetDirection();
 
             //direction *= distance; 
-            // код для зацикливания линейного трека
-            // хотел найти код метода Mathf.repeat но не получилось
-            // пришлось придумывать самому, есть + по сравнению с Math.Repeat
+            // РєРѕРґ РґР»СЏ Р·Р°С†РёРєР»РёРІР°РЅРёСЏ Р»РёРЅРµР№РЅРѕРіРѕ С‚СЂРµРєР°
+            // С…РѕС‚РµР» РЅР°Р№С‚Рё РєРѕРґ РјРµС‚РѕРґР° Mathf.repeat РЅРѕ РЅРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ
+            // РїСЂРёС€Р»РѕСЃСЊ РїСЂРёРґСѓРјС‹РІР°С‚СЊ СЃР°РјРѕРјСѓ, РµСЃС‚СЊ + РїРѕ СЃСЂР°РІРЅРµРЅРёСЋ СЃ Math.Repeat
             if (distance < 0)
             {
                 direction *= GetTrackLength() + distance % GetTrackLength();
@@ -48,7 +48,7 @@ namespace Race
 
         public override Vector3 Move(GameObject MovingBody)
         {
-            float speed = m_Speed * Time.fixedDeltaTime; // для перевода скорости в [ед.мира/сек]
+            float speed = m_Speed * Time.fixedDeltaTime; // РґР»СЏ РїРµСЂРµРІРѕРґР° СЃРєРѕСЂРѕСЃС‚Рё РІ [РµРґ.РјРёСЂР°/СЃРµРє]
 
             return GetPosition(MovingBody.transform.position.magnitude + speed);
         }
@@ -75,7 +75,7 @@ namespace Race
         private void OnValidate()
         {
             m_TestObject.position = GetPosition(m_TestDistance);
-            m_TestObject.forward = GetDirection(); // убрал m_TestDistance
+            m_TestObject.forward = GetDirection(); // СѓР±СЂР°Р» m_TestDistance
         }
 
         #endregion
