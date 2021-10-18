@@ -5,40 +5,40 @@ using UnityEngine;
 namespace Race
 {
     /// <summary>
-    /// Базовый класс который определяет нашу трубу для гонок.
+    /// Р‘Р°Р·РѕРІС‹Р№ РєР»Р°СЃСЃ РєРѕС‚РѕСЂС‹Р№ РѕРїСЂРµРґРµР»СЏРµС‚ РЅР°С€Сѓ С‚СЂСѓР±Сѓ РґР»СЏ РіРѕРЅРѕРє.
     /// </summary>
     public abstract class RaceTrack : MonoBehaviour
     {
         /// <summary>
-        /// Радиус трубы.
+        /// Р Р°РґРёСѓСЃ С‚СЂСѓР±С‹.
         /// </summary>
         [Header("Base track properties")]
         [SerializeField] private float m_Radius;
-        public float Radius => m_Radius; //гетр значения
+        public float Radius => m_Radius; //РіРµС‚СЂ Р·РЅР°С‡РµРЅРёСЏ
 
         /// <summary>
-        /// Метод возвращает длину трека.
+        /// РњРµС‚РѕРґ РІРѕР·РІСЂР°С‰Р°РµС‚ РґР»РёРЅСѓ С‚СЂРµРєР°.
         /// </summary>
         /// <returns></returns>
         public abstract float GetTrackLength();
 
         /// <summary>
-        /// Метод возвращает позицию в 3д кривой цетр-линии трубы
+        /// РњРµС‚РѕРґ РІРѕР·РІСЂР°С‰Р°РµС‚ РїРѕР·РёС†РёСЋ РІ 3Рґ РєСЂРёРІРѕР№ С†РµС‚СЂ-Р»РёРЅРёРё С‚СЂСѓР±С‹
         /// </summary>
-        /// <param name="distance">дистанция от начала трубы до ее GetTrackLength</param>  
+        /// <param name="distance">РґРёСЃС‚Р°РЅС†РёСЏ РѕС‚ РЅР°С‡Р°Р»Р° С‚СЂСѓР±С‹ РґРѕ РµРµ GetTrackLength</param>  
         /// <returns></returns>
         public abstract Vector3 GetPosition(float distance);
 
         /// <summary>
-        /// Метод возвращает направление в 3д кривой центр-линии трубы.
-        /// Касательная к кривой в точке.
+        /// РњРµС‚РѕРґ РІРѕР·РІСЂР°С‰Р°РµС‚ РЅР°РїСЂР°РІР»РµРЅРёРµ РІ 3Рґ РєСЂРёРІРѕР№ С†РµРЅС‚СЂ-Р»РёРЅРёРё С‚СЂСѓР±С‹.
+        /// РљР°СЃР°С‚РµР»СЊРЅР°СЏ Рє РєСЂРёРІРѕР№ РІ С‚РѕС‡РєРµ.
         /// </summary>
         /// <returns></returns>
-        public abstract Vector3 GetDirection(); // убрал float distance 
+        public abstract Vector3 GetDirection(); // СѓР±СЂР°Р» float distance 
 
 
         /// <summary>
-        /// Метод возвращает новое положение тела.
+        /// РњРµС‚РѕРґ РІРѕР·РІСЂР°С‰Р°РµС‚ РЅРѕРІРѕРµ РїРѕР»РѕР¶РµРЅРёРµ С‚РµР»Р°.
         /// </summary>
         /// <returns></returns>
         public abstract Vector3 Move(GameObject MovingBody); 
