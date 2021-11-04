@@ -21,7 +21,7 @@ namespace Race
             SetObstacleposition();
         }
 
-        // считаем позицию
+        // СЃС‡РёС‚Р°РµРј РїРѕР·РёС†РёСЋ
         private void SetObstacleposition()
         {
             Vector3 obstaclePos = m_Track.GetPosition(m_Distance);
@@ -42,7 +42,7 @@ namespace Race
 
         private void UpdateObstaclePhisics()
         {
-            // вращение с заданной скоростью
+            // РІСЂР°С‰РµРЅРёРµ СЃ Р·Р°РґР°РЅРЅРѕР№ СЃРєРѕСЂРѕСЃС‚СЊСЋ
             float dt = Time.deltaTime;
 
             Vector3 ObstaclePos = m_Track.GetPosition(m_Distance);
@@ -52,13 +52,13 @@ namespace Race
 
             m_RollAngle += dAngle;
 
-            // реализация направления вертикальной оси препятствия к оси трека
+            // СЂРµР°Р»РёР·Р°С†РёСЏ РЅР°РїСЂР°РІР»РµРЅРёСЏ РІРµСЂС‚РёРєР°Р»СЊРЅРѕР№ РѕСЃРё РїСЂРµРїСЏС‚СЃС‚РІРёСЏ Рє РѕСЃРё С‚СЂРµРєР°
             Quaternion q = Quaternion.AngleAxis(m_RollAngle, Vector3.forward);
             Vector3 trackOffset = q * (Vector3.up * m_Track.Radius* m_RadiusModifier);
 
             transform.position = ObstaclePos - trackOffset;
 
-            // вращение которое характеризуется направлением вперед и вектором ввверх
+            // РІСЂР°С‰РµРЅРёРµ РєРѕС‚РѕСЂРѕРµ С…Р°СЂР°РєС‚РµСЂРёР·СѓРµС‚СЃСЏ РЅР°РїСЂР°РІР»РµРЅРёРµРј РІРїРµСЂРµРґ Рё РІРµРєС‚РѕСЂРѕРј РІРІРІРµСЂС…
             transform.rotation = Quaternion.LookRotation(ObstacleDir, trackOffset);
         }
 
